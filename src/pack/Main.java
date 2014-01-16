@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Features f = new Features();
-        f.sortByProductType("milk");
+        f.sortByProductType("candys");
 
     }
 

@@ -39,6 +39,10 @@ public class Features {
             }
         }
 
+        for (Iterator<Product> itr = sortListOfProductType.iterator(); itr.hasNext(); ) {
+            Product p = itr.next();
+            System.out.println(p.getProduct() + " " + p.getPrice());
+        }
     }
 
     public void sortByLowPrice(List<Product> lr) {
