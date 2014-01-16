@@ -38,7 +38,7 @@ public class Features {
                 sortListOfProductType.add(p);
             }
         }
-        sortListOfProductType.size();
+
     }
 
     public void sortByLowPrice(List<Product> lr) {
