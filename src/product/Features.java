@@ -10,7 +10,7 @@ public class Features {
 
     private List<Product> list;
     private int numbersOfPage = 0;
-    private int numberOfElementsPerPage = 5;
+    private int numberOfElementsPerPage = 8;
     private int numbersElementOnLastPage = 0;
     private boolean flag = false;
 
@@ -42,23 +42,14 @@ public class Features {
         int elementsResult = elements - numberOfElementsPerPage;
         int j;
         if (pageNumber <= numbersOfPage) {
-            if (flag && pageNumber == numbersOfPage) {
-                numberOfElementsPerPage = numbersElementOnLastPage;
+            if (flag && pageNumber == numbersOfPage) numberOfElementsPerPage = numbersElementOnLastPage;
                 for (int index = 0; index < numberOfElementsPerPage; index++) {
                     j = elementsResult++;
                     System.out.println(list.get(j).getProduct() + " " + list.get(j).getShop() + " " + list.get(j).getPrice());
                 }
             }
-
-            else {
-                for (int index = 0; index < numberOfElementsPerPage; index++) {
-                    j = elementsResult++;
-                    System.out.println(list.get(j).getProduct() + " " + list.get(j).getShop() + " " + list.get(j).getPrice());
-                }
-            }
-
-        } else {
-            throw new IllegalArgumentException(String.format("Page number %s does not exist", pageNumber));
+         else {
+            throw new IllegalArgumentException("Page does not exist");
         }
 
     }
