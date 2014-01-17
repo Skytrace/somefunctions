@@ -19,7 +19,7 @@ public class Features {
 
         for(Iterator<Product> p = list.iterator(); p.hasNext();) {
             Product pp = p.next();
-            System.out.println(pp.getShop() + " " + pp.getPrice());
+            System.out.println(pp.getShop() + " " + pp.getPrice() + " " + pp.getProduct());
         }
     }
 
@@ -37,7 +37,7 @@ public class Features {
                 if (sortListOfProductType.size() == 3) break;
                 sortListOfProductType.add(p);
             }
-        }
+    }
 
         for (Iterator<Product> itr = sortListOfProductType.iterator(); itr.hasNext(); ) {
             Product p = itr.next();
@@ -45,8 +45,8 @@ public class Features {
         }
     }
 
-    public void sortByLowPrice(List<Product> lr) {
-        Collections.sort(lr, new Comparator<Product>() {
+    public void sortByLowPrice() {
+        Collections.sort(list, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
                 if (o1.getPrice() < o2.getPrice()) return -1;
@@ -54,7 +54,7 @@ public class Features {
                 return 1;
             }
         });
-        showMostOfLowPrice("low");
+        showtopThreeProductPrice("low");
     }
 
     public void sortByHighPrice() {
@@ -66,10 +66,10 @@ public class Features {
                 return 1;
             }
         });
-        showMostOfLowPrice("high");
+        showtopThreeProductPrice("high");
     }
 
-    private void showMostOfLowPrice(String param) {
+    private void showtopThreeProductPrice(String param) {
         System.out.println(String.format("3 top product of %s price", param));
         System.out.println(list.get(0).getShop() + " " + list.get(0).getProduct() + " " + list.get(0).getPrice());
         System.out.println(list.get(1).getShop() + " " + list.get(1).getProduct() + " " + list.get(1).getPrice());

@@ -15,8 +15,8 @@ public class Main {
     public static void main(String[] args) {
 
         f = new Features();
-        Steps asd = new Steps();
-        asd.showAllProducts();
+        Steps steps = new Steps();
+        steps.showAllProductsOnLowPrice();
 
     }
 
@@ -27,6 +27,17 @@ public class Main {
             f.showProducts();
         }
 
+        public void showAllShops() {
+            f.displayShops();
+        }
+
+        public void showMostOfLowPriceProduct() {
+            f.sortByProductType("candys");
+        }
+
+        public void showAllProductsOnLowPrice() {
+            f.sortByLowPrice();
+        }
 
     }
 
