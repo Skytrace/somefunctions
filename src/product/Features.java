@@ -9,18 +9,58 @@ import java.util.*;
 public class Features {
 
     private List<Product> list;
+    private int numbersOfPage = 0;
+    private int numberOfElementsPerPage = 5;
+    private int numbersElementOnLastPage = 0;
+    private boolean flag = false;
 
     public Features() {
         MakeObject product = new MakeObject();
         list = new ArrayList<>(product.getProduct());
+        int listSize = list.size();
+        numbersOfPage = listSize / numberOfElementsPerPage;
+        numbersElementOnLastPage = listSize % numberOfElementsPerPage;
+        if (numbersElementOnLastPage != 0) {
+            numbersOfPage += 1;
+            flag = true;
+        }
+
     }
 
     public void showProducts() {
-
+        int index = 0;
         for(Iterator<Product> p = list.iterator(); p.hasNext();) {
+            index += 1;
             Product pp = p.next();
-            System.out.println(pp.getShop() + " " + pp.getPrice() + " " + pp.getProduct());
+            System.out.println( index + " " + pp.getShop() + " " + pp.getPrice() + " " + pp.getProduct());
+            if (index == numberOfElementsPerPage) break;
         }
+    }
+
+    public void showContentByPageNumber(int pageNumber) {
+        int elements = pageNumber * numberOfElementsPerPage;
+        int elementsResult = elements - numberOfElementsPerPage;
+        int j;
+        if (pageNumber <= numbersOfPage) {
+            if (flag && pageNumber == numbersOfPage) {
+                numberOfElementsPerPage = numbersElementOnLastPage;
+                for (int index = 0; index < numberOfElementsPerPage; index++) {
+                    j = elementsResult++;
+                    System.out.println(list.get(j).getProduct() + " " + list.get(j).getShop() + " " + list.get(j).getPrice());
+                }
+            }
+
+            else {
+                for (int index = 0; index < numberOfElementsPerPage; index++) {
+                    j = elementsResult++;
+                    System.out.println(list.get(j).getProduct() + " " + list.get(j).getShop() + " " + list.get(j).getPrice());
+                }
+            }
+
+        } else {
+            throw new IllegalArgumentException(String.format("Page number %s does not exist", pageNumber));
+        }
+
     }
 
     public void showProductByLowPrice(String productType) {

@@ -16,7 +16,7 @@ public class Main {
 
         f = new Features();
         Steps steps = new Steps();
-        steps.showAllProductsOnLowPrice();
+        steps.showContentByPageNumber();
 
     }
 
@@ -24,7 +24,7 @@ public class Main {
     static class Steps {
 
         public void showAllProducts() {
-            f.showProducts();
+
         }
 
         public void showAllShops() {
@@ -38,6 +38,11 @@ public class Main {
         public void showAllProductsOnLowPrice() {
             f.sortByLowPrice();
         }
+
+        public void showContentByPageNumber() {
+            f.showContentByPageNumber(19);
+        }
+
 
     }
 
