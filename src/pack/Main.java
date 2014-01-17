@@ -10,11 +10,23 @@ import product.Features;
  */
 
 public class Main {
+    static Features f;
 
     public static void main(String[] args) {
 
-        Features f = new Features();
-        f.sortByProductType("candys");
+        f = new Features();
+        Steps asd = new Steps();
+        asd.showAllProducts();
+
+    }
+
+
+    static class Steps {
+
+        public void showAllProducts() {
+            f.showProducts();
+        }
+
 
     }
 
