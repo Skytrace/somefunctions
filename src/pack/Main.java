@@ -1,6 +1,7 @@
 package pack;
 
 import product.Features;
+import product.FeaturesHTML;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,13 +12,14 @@ import product.Features;
 
 public class Main {
     static Features f;
+    static FeaturesHTML fHTML;
 
     public static void main(String[] args) {
 
         f = new Features();
-        Steps steps = new Steps();
-        steps.showContentByPageNumber();
-
+        fHTML = new FeaturesHTML();
+        fHTML.getPageProducts();
+        fHTML.showProductList();
     }
 
 
@@ -40,10 +42,9 @@ public class Main {
         }
 
         public void showContentByPageNumber() {
-            f.showContentByPageNumber(19);
+            f.showContentByPageNumber(4);
         }
 
 
     }
-
 }
