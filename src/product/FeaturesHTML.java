@@ -29,6 +29,8 @@ public class FeaturesHTML {
             do {
                 doc = Jsoup.connect(String.format("https://novus.zakaz.ua/ru/apple-juice/?&page=%s", a)).get();
 
+
+
                 product = doc.getElementsByClass("one-product");
                 String test = "as346fvgghfghy8";
                 for (Element link : product) {
